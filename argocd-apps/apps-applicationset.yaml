@@ -1,0 +1,31 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: lab-apps
+  namespace: argocd
+spec:
+  generators:
+    - list:
+        elements:
+          - name: infrastructure
+            path: infrastructure
+            namespace: kube-system
+          - name: workloads
+            path: apps
+            namespace: default
+  template:
+    metadata:
+      name: '{{name}}'
+    spec:
+      project: default
+      source:
+        repoURL: https://github.com/rerichardjr/flux-av.git
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        server: https://kubernetes.default.svc
+        namespace: '{{namespace}}'
+      syncPolicy:
+        automated:
+          prune: true
+          selfHeal: true
