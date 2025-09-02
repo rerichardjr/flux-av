@@ -17,6 +17,10 @@ spec:
           name: traefik
         service:
           type: LoadBalancer
+        rbac:
+          enabled: true
+        crds:
+          enabled: true
         additionalArguments:
           - "--providers.kubernetescrd.allowCrossNamespace=true"
           - "--entrypoints.web.address=:80"
@@ -28,3 +32,4 @@ spec:
     automated:
       prune: true
       selfHeal: true
+
