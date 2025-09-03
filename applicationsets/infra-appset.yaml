@@ -36,6 +36,8 @@ spec:
           {{- if .installCRDs }}
           values: |
             installCRDs: {{.installCRDs}}
+          {{- else }}
+          {}
           {{- end }}
       destination:
         server: https://kubernetes.default.svc
@@ -46,4 +48,5 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+
 
