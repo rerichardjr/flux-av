@@ -15,8 +15,3 @@ spec:
     automated:
       prune: true
       selfHeal: true
-  dependsOn:
-    - name: metallb
-    - name: cert-manager
-    - name: traefik
-
