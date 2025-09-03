@@ -14,7 +14,7 @@ This repository provides a GitOps-driven deployment for an RKE2 Kubernetes clust
 
 - **GitOps-first**: Declarative infrastructure and app management via Argo CD
 - **RKE2 + Vagrant**: Local Kubernetes cluster provisioned with Vagrant
-- **Automated Bootstrap**: Argo CD installs itself and syncs manifests from this repo
+- **Automated Bootstrap**: Argo CD syncs manifests from this repo
 - **Modular Infra Stack**:
   - `cert-manager` for certificate management
   - `Traefik` as the ingress controller
