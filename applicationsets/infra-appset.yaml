@@ -23,6 +23,16 @@ spec:
             repoURL: https://traefik.github.io/charts
             chart: traefik
             targetRevision: 37.0.0
+          - name: grafana
+            namespace: monitoring
+            repoURL: https://grafana.github.io/helm-charts
+            chart: grafana
+            targetRevision: 12.1.0
+          - name: prometheus
+            namespace: monitoring
+            repoURL: https://prometheus-community.github.io/helm-charts
+            chart: prometheus
+            targetRevision: 25.27.0
   template:
     metadata:
       name: '{{.name}}'
@@ -50,3 +60,19 @@ spec:
           values: |
             installCRDs: true
     {{- end }}
+    {{- if eq .name "grafana" }}
+    spec:
+      source:
+        helm:
+          values: |
+            datasources:
+              datasources.yaml:
+                apiVersion: 1
+                datasources:
+                  - name: Prometheus
+                    type: prometheus
+                    url: http://prometheus-server.monitoring.svc.cluster.local
+                    access: proxy
+                    isDefault: true
+    {{- end }}
+
