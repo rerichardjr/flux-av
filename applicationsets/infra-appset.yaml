@@ -17,7 +17,7 @@ spec:
             repoURL: https://charts.jetstack.io
             chart: cert-manager
             targetRevision: v1.18.2
-            installCRDs: true
+            installCRDs: "true"
           - name: traefik
             namespace: traefik
             repoURL: https://traefik.github.io/charts
@@ -46,6 +46,7 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+
 
 
 
