@@ -27,7 +27,7 @@ spec:
             namespace: monitoring
             repoURL: https://grafana.github.io/helm-charts
             chart: grafana
-            targetRevision: 12.1.1
+            targetRevision: 9.4.4
           - name: prometheus
             namespace: monitoring
             repoURL: https://prometheus-community.github.io/helm-charts
@@ -75,5 +75,6 @@ spec:
                     access: proxy
                     isDefault: true
     {{- end }}
+
 
 
