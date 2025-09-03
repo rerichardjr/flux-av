@@ -1,0 +1,6 @@
+resources:
+  - argocd/certificate.yaml
+  - argocd/ingressroute.yaml
+  - cert-manager/clusterissuer-selfsigned.yaml
+  - metallb/ipaddresspool.yaml
+  - metallb/l2advertisement.yaml
