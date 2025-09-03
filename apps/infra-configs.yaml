@@ -11,9 +11,11 @@ spec:
     path: infra-configs
   destination:
     server: https://kubernetes.default.svc
-    namespace: default
   syncPolicy:
     automated:
       prune: true
       selfHeal: true
-
+  dependsOn:
+    - name: metallb
+    - name: cert-manager  
+    - name: traefik
