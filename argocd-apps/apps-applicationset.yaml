@@ -8,21 +8,27 @@ spec:
     - list:
         elements:
           - name: metallb
-            path: infrastructure/metallb
             namespace: metallb-system
+            repoURL: https://metallb.github.io/metallb
+            chart: metallb
+            targetRevision: 0.14.5
           - name: cert-manager
-            path: infrastructure/cert-manager
             namespace: cert-manager
+            repoURL: https://charts.jetstack.io
+            chart: cert-manager
+            targetRevision: v1.14.4
           - name: traefik
-            path: infrastructure/traefik
             namespace: traefik
+            repoURL: https://traefik.github.io/charts
+            chart: traefik
+            targetRevision: 27.0.2
   template:
     metadata:
       name: '{{name}}'
     spec:
       project: default
       source:
-        repoURL: https://github.com/rerichardjr/flux-av.git
+        repoURL: '{{repoURL}}'
         targetRevision: main
         path: '{{path}}'
       destination:
@@ -32,6 +38,8 @@ spec:
         automated:
           prune: true
           selfHeal: true
+        syncOptions:
+          - CreateNamespace=true
 
 
 
