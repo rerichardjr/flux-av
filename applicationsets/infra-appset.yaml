@@ -33,12 +33,10 @@ spec:
         chart: '{{.chart}}'
         targetRevision: '{{.targetRevision}}'
         helm:
-          {{- if .installCRDs }}
           values: |
+            {{- if .installCRDs }}
             installCRDs: {{.installCRDs}}
-          {{- else }}
-          {}
-          {{- end }}
+            {{- end }}
       destination:
         server: https://kubernetes.default.svc
         namespace: '{{.namespace}}'
@@ -48,5 +46,6 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+
 
 
