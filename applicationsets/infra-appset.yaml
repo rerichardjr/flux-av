@@ -17,8 +17,7 @@ spec:
             repoURL: https://charts.jetstack.io
             chart: cert-manager
             targetRevision: v1.18.2
-            values: |
-              installCRDs: true
+            installCRDs: true
           - name: traefik
             namespace: traefik
             repoURL: https://traefik.github.io/charts
@@ -26,22 +25,25 @@ spec:
             targetRevision: 37.0.0
   template:
     metadata:
-      name: '{{name}}'
+      name: '{{.name}}'
     spec:
       project: default
       source:
-        repoURL: '{{repoURL}}'
-        chart: '{{chart}}'
-        targetRevision: '{{targetRevision}}'
+        repoURL: '{{.repoURL}}'
+        chart: '{{.chart}}'
+        targetRevision: '{{.targetRevision}}'
         helm:
+          {{- if .installCRDs }}
           values: |
-            {{values}}
+            installCRDs: {{.installCRDs}}
+          {{- end }}
       destination:
         server: https://kubernetes.default.svc
-        namespace: '{{namespace}}'
+        namespace: '{{.namespace}}'
       syncPolicy:
         automated:
           prune: true
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+
