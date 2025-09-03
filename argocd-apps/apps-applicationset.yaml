@@ -9,7 +9,7 @@ spec:
         elements:
           - name: infrastructure
             path: infrastructure
-            namespace: kube-system
+            namespace: argocd
           - name: workloads
             path: apps
             namespace: default
@@ -29,3 +29,4 @@ spec:
         automated:
           prune: true
           selfHeal: true
+
