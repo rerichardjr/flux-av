@@ -16,12 +16,12 @@ spec:
             namespace: cert-manager
             repoURL: https://charts.jetstack.io
             chart: cert-manager
-            targetRevision: v1.14.4
+            targetRevision: v1.18.2
           - name: traefik
             namespace: traefik
             repoURL: https://traefik.github.io/charts
             chart: traefik
-            targetRevision: 27.0.2
+            targetRevision: 37.0.0
   template:
     metadata:
       name: '{{name}}'
@@ -40,6 +40,7 @@ spec:
           selfHeal: true
         syncOptions:
           - CreateNamespace=true
+
 
 
 
