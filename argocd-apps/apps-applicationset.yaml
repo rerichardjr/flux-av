@@ -16,9 +16,6 @@ spec:
           - name: traefik
             path: infrastructure/traefik
             namespace: traefik
-          - name: workloads
-            path: apps
-            namespace: default
   template:
     metadata:
       name: '{{name}}'
@@ -35,5 +32,6 @@ spec:
         automated:
           prune: true
           selfHeal: true
+
 
 
