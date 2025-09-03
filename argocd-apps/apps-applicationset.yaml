@@ -7,9 +7,15 @@ spec:
   generators:
     - list:
         elements:
-          - name: infrastructure
-            path: infrastructure
-            namespace: argocd
+          - name: metallb
+            path: infrastructure/metallb
+            namespace: metallb-system
+          - name: cert-manager
+            path: infrastructure/cert-manager
+            namespace: cert-manager
+          - name: traefik
+            path: infrastructure/traefik
+            namespace: traefik
           - name: workloads
             path: apps
             namespace: default
@@ -29,4 +35,5 @@ spec:
         automated:
           prune: true
           selfHeal: true
+
 
