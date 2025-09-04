@@ -2,15 +2,13 @@
 
 Flux-AV is an end-to-end autonomous vehicle lab designed to be deployed with minimal effort using GitOps principles.
 
-Base RKE2 will be from this [Vagrant build](https://github.com/rerichardjr/vagrant-rke2)
-
 ---
 
 ## Project Overview
 
 This repository provides a GitOps-driven deployment for an RKE2 Kubernetes cluster using Vagrant. It bootstraps core infrastructure components and application sets automatically, enabling rapid experimentation and development.
 
-### 🔧 Key Features (so far)
+### Key Features (so far)
 
 - **GitOps-first**: Declarative infrastructure and app management via Argo CD
 - **RKE2 + Vagrant**: Local Kubernetes cluster provisioned with Vagrant
